@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  anticipatory-commerce:
+    build: .
+    container_name: anticipatory_commerce_agent
+    ports:
+      - "8501:8501"
+    environment:
+      - REZOLVE_API_KEY=${REZOLVE_API_KEY:-}
+      - REZOLVE_KB_ID=${REZOLVE_KB_ID:-}
+      - REZOLVE_API_BASE=${REZOLVE_API_BASE:-https://api.rezolvelabs.com/api/v1}
+    restart: unless-stopped
